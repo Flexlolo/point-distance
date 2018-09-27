@@ -1,4 +1,4 @@
-# point-distance
+# pointdistance
 
 Sourcemod plugin to get distance between any two set points.
 Created and tested for CS:S.
