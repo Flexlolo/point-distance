@@ -3,7 +3,7 @@
 
 #include <morecolors>
 
-// enforice 1.7 syntax
+// enforce 1.7 syntax
 #pragma newdecls required
 
 /*
@@ -14,7 +14,6 @@ Includes
 
 #include <cstrike>
 #include <sdktools>
-#include <sdkhooks>
 
 #include <lololib>
 
