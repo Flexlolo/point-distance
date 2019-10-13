@@ -1,46 +1,43 @@
-// enforce semicolons after each code statement
+/*
+COMPILE OPTIONS
+*/
+
 #pragma semicolon 1
-
-#include <morecolors>
-
-// enforce 1.7 syntax
 #pragma newdecls required
 
 /*
-Includes
+INCLUDES
 */
 
 #include <sourcemod>
-
 #include <cstrike>
 #include <sdktools>
-
+#include <morecolors>
 #include <lololib>
 
 /*
-Plugin Info
+PLUGIN INFO
 */
 
-public Plugin myinfo = {
-	name 						= "Point Distance",
-	author 						= "Flexlolo",
-	description 				= "Point Distance",
-	version 					= "1.0",
-	url 						= ""
+public Plugin myinfo = 
+{
+	name			= "Point distance",
+	author			= "Flexlolo",
+	description		= "Show distance between two points",
+	version			= "1.0.0",
+	url				= "github.com/Flexlolo/"
 }
 
 /*
-Global Variables
+GLOBAL VARIABLES
 */
 
 // Chat
-
 #define CHAT_DIST "\x01[PD]"
 #define CHAT_TEXT "\x01"
 #define CHAT_VALUE "\x01"
 
-// Beam variables
-
+// Beam
 #define BEAM_DRAW_INTERVAL 		0.1
 
 #define BEAM_HALO 				"materials/sprites/halo01.vmt"
@@ -57,8 +54,7 @@ int g_iBeam_Model;
 int	g_iSnap_Halo;
 int g_iSnap_Model;
 
-// Client variables
-
+// Client
 bool g_bPoints[MAXPLAYERS + 1][2];
 float g_fPoints[MAXPLAYERS + 1][2][3];
 
@@ -69,7 +65,7 @@ int g_iSnap_Steps[] = {1, 2, 4, 8, 16, 32, 64};
 int g_bMenu[MAXPLAYERS + 1];
 
 /*
-Forwards
+NATIVES AND FORWARDS
 */
 
 public void OnPluginStart()
@@ -90,8 +86,9 @@ public void OnClientPutInServer(int client)
 }
 
 /*
-Command
+COMMANDS
 */
+
 
 public Action Command_Distance(int client, int args)
 {
@@ -341,10 +338,11 @@ public void Distance_Print(int client)
 
 		float dxy = SquareRoot(Pow(d[0], 2.0) + Pow(d[1], 2.0));
 
-		CPrintToChat(client, "%s %sΔx: %s%.1f %s| Δy: %s%.1f %s| Δz: %s%.1f %s| Δxy: %s%.1f", CHAT_DIST, CHAT_TEXT, CHAT_VALUE, d[0], 
-																										CHAT_TEXT, CHAT_VALUE, d[1], 
-																										CHAT_TEXT, CHAT_VALUE, d[2], 
-																										CHAT_TEXT, CHAT_VALUE, dxy);
+		CPrintToChat(client, "%s %sΔx: %s%.1f %s| Δy: %s%.1f %s| Δz: %s%.1f %s| Δxy: %s%.1f", 	CHAT_DIST, CHAT_TEXT, 
+																								CHAT_VALUE, d[0], CHAT_TEXT, 
+																								CHAT_VALUE, d[1], CHAT_TEXT, 
+																								CHAT_VALUE, d[2], CHAT_TEXT, 
+																								CHAT_VALUE, dxy);
 	}
 }
 
